@@ -1,0 +1,87 @@
+import random
+
+num_questions = 0
+correct_count = 0
+
+def start_practice():
+    print("Enter the type of Math questions you want to practice:")
+    choice = menu()
+    if choice == 1:
+        addition_module()
+    elif choice == 2:
+        subtraction_module()
+    elif choice == 3:
+        multiplication_module()
+    else:
+        factorial_module()
+    print("You got "+str((correct_count/num_questions)*100)+"% correct!")
+
+def menu():
+    print("1 - for addition module")
+    print("2 - for subtraction module")
+    print("3 - for multiplication module")
+    print("4 - for factorial module")
+    user_pick = int(input("Choose one module from the above modules and enter the corresponding number:"))
+    return user_pick
+
+def addition_module():
+    global num_questions
+    global correct_count
+    num_questions = int(input("How many questions do you want to practice?"))
+    for i in range(num_questions):
+        a = random.randint(0,9)
+        b = random.randint(0,9)
+        answer = a + b
+        val = int(input("What is "+str(a)+" + "+str(b)+" : "))
+        if answer == val:
+            print("correct!!!")
+            correct_count += 1
+        else:
+            print("incorrect")
+
+def subtraction_module():
+    global num_questions
+    global correct_count
+    num_questions = int(input("How many questions do you want to practice?"))
+    for i in range(num_questions):
+        a = random.randint(0,9)
+        b = random.randint(0,9)
+        answer = a - b
+        val = int(input("What is "+str(a)+" - "+str(b)+" : "))
+        if answer == val:
+            print("correct!!!")
+            correct_count += 1
+        else:
+            print("incorrect")
+
+def multiplication_module():
+    global num_questions
+    global correct_count
+    num_questions = int(input("How many questions do you want to practice?"))
+    for i in range(num_questions):
+        a = random.randint(0,9)
+        b = random.randint(0,9)
+        answer = a * b
+        val = int(input("What is "+str(a)+" x "+str(b)+" : "))
+        if answer == val:
+            print("correct!!!")
+            correct_count += 1
+        else:
+            print("incorrect")
+
+def factorial_module():
+    global num_questions
+    global correct_count
+    num_questions = int(input("How many questions do you want to practice?"))
+    for i in range(num_questions):
+        n = random.randint(0,5)
+        factorial = 1
+        for i in range(n,1,-1):
+            factorial *= i
+        val = int(input("What is "+str(n)+"!"))
+        if factorial == val:
+            print("correct!!!")
+            correct_count += 1
+        else:
+            print("incorrect")
+start_practice()
